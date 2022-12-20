@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Phone Shop</string>
+    <string name="home">Strona Główna</string>
+    <string name="cart">Koszyk</string>
+    <string name="account">Konto</string>
+    <string name="logout">Wyloguj</string>
+    <string name="login">Zaloguj</string>
+    <string name="register">Zarejestruj</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="loguj" translatable="false">Zaloguj</string>
+    <string name="AlertDialog_message">Zaloguj się lub zarejestruj</string>
+    <string name="remember_me">Zapamiętaj mnie</string>
+    <string name="your_cart">Twój koszyk</string>
+    <string name="total">Razem:</string>
+    <string name="order_btn">ZAMÓW</string>
+    <string name="password">hasło</string>
+    <string name="email">email</string>
+    <string name="your_orders">Twoje zamówienia</string>
+    <string name="reg_name">Podaj imię użytkownika:</string>
+    <string name="reg_surname">Podaj nazwisko:</string>
+    <string name="reg_email">Podaj email:</string>
+    <string name="reg_password">Podaj hasło:</string>
+    <string name="reg_phone">Podaj numer telefonu:</string>
+    <string name="details">Szczegóły</string>
+    <string name="add_to_cart">DO KOSZYKA</string>
+    <string name="orders">Zamówienia</string>
+    <string name="order_accepted">Przyjęto zamówienie</string>
+    <string name="date_purchase">Data zakupu:</string>
+    <string name="order_price">Cena:</string>
+    <string name="or_register">Nie masz konta?</string>
+    <string name="or_login">Masz konto?</string>
+    <string name="missing_info">Uzupełnij dane</string>
+    <string name="loggedin">Zalogowano</string>
+    <string name="wrong_info">Niepoprawne dane</string>
+    <string name="addtocart">Dodano do koszyka</string>
+    <string name="registered">Zarejestrowano</string>
+    <string name="permission_grant">Uprawnienia przyznane</string>
+    <string name="permission_denied">Uprawnienia nieprzyznane</string>
+</resources>

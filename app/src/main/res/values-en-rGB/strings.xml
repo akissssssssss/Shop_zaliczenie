@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Phone Shop</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="account">Account</string>
+    <string name="logout">Logout</string>
+    <string name="login">Log in</string>
+    <string name="register">Register</string>
+    <string name="AlertDialog_message">Log in or register</string>
+    <string name="remember_me">Remember me</string>
+    <string name="your_cart">Your cart</string>
+    <string name="total">Total:</string>
+    <string name="order_btn">Order</string>
+    <string name="password">password</string>
+    <string name="email">email</string>
+    <string name="your_orders">Your orders</string>
+    <string name="reg_name">Enter username:</string>
+    <string name="reg_surname">Enter surname:</string>
+    <string name="reg_email">Enter email:</string>
+    <string name="reg_password">Enter password</string>
+    <string name="reg_phone">Enter phone number</string>
+    <string name="details">Details</string>
+    <string name="add_to_cart">To cart</string>
+    <string name="orders">Orders</string>
+    <string name="order_accepted">Order accepted</string>
+    <string name="date_purchase">Date of purchase:</string>
+    <string name="order_price">Price:</string>
+    <string name="or_register">Don\'t have an account?</string>
+    <string name="or_login">Have an account?</string>
+    <string name="missing_info">Complete data</string>
+    <string name="loggedin">Logged in</string>
+    <string name="wrong_info">Incorrect data</string>
+    <string name="addtocart">Added to cart</string>
+    <string name="registered">Registered</string>
+    <string name="permission_grant">Permissions granted</string>
+    <string name="permission_denied">Permissions denied</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary">
+
+    <TextView
+        android:id="@+id/order_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1."
+        android:padding="10dp"
+        />
+
+    <TextView
+        android:layout_toEndOf="@id/order_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_order"
+        android:text="12.12.2312"
+        android:padding="10dp"
+        android:textColor="@color/text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:layout_toEndOf="@id/date_order"
+        android:id="@+id/email_order"
+        android:text="email"
+        android:padding="10dp"
+        android:textColor="@color/text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/total_price"
+        android:text="1000"
+        android:padding="10dp"
+        android:textColor="@color/text"
+        android:layout_alignParentEnd="true"/>
+
+</RelativeLayout>
