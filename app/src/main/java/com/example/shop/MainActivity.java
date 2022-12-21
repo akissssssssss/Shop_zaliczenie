@@ -2,20 +2,25 @@ package com.example.shop;
 
 import static com.example.shop.Data.Fragments.getFragment;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
+import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.shop.Data.Cart;
 import com.example.shop.Data.DbController;
@@ -26,6 +31,10 @@ import com.example.shop.Data.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,18 +121,16 @@ public class MainActivity extends AppCompatActivity {
             helper.insert4("Headphones");
             helper.insert4("Portable chargers");
 
-            helper.insert2("APPLE iPhone 14 128GB 5G 6.1","1","To bardzo fajny telefon", (float) 4399.32,"da");
-            helper.insert2("APPLE iPhone 11 64GB 6.1","1","To fajny telefon", (float) 3399.32,"da");
-            helper.insert2("SAMSUNG Galaxy S20 FE 6/128GB 5G 6.5","2","To bardzo fajny telefon", (float) 2399.32,"da");
-            helper.insert2("SAMSUNG Galaxy M23 4/128GB 5G 6.6","2","To fajny telefon", (float) 1399.32,"da");
-            helper.insert2("Ładowarka sieciowa APPLE 20W USB-C","3","To bardzo dobra ładowarka", (float) 109.32,"da");
-            helper.insert2("Ładowarka sieciowa SAMSUNG EP-TA800NBEGEU 25W USB-C","3","To dobra ładowarka", (float) 99.32,"da");
-            helper.insert2("Słuchawki bezprzewodowe APPLE AirPods Pro","4","To bardzo dobre słuchawki", (float) 1099.32,"da");
-            helper.insert2("Słuchawki bezprzewodowe SAMSUNG Galaxy Buds Pro","4","To dobre słuchawki", (float) 899.32,"da");
-            helper.insert2("Powerbank SAMSUNG 10000mAh","5","To dobry powerbank", (float) 309.32,"da");
-            helper.insert2("Powerbank APPLE 10000mAh","5","To bardzo dobry powerbank", (float) 509.32,"da");
-
-
+            helper.insert2("APPLE iPhone 14 128GB 5G 6.1","1","To bardzo fajny telefon", (float) 4399.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.iphone14)));
+            helper.insert2("APPLE iPhone 11 64GB 6.1","1","To fajny telefon", (float) 3399.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.iphone11)));
+            helper.insert2("SAMSUNG Galaxy S20 FE 6/128GB 5G 6.5","2","To bardzo fajny telefon", (float) 2399.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.samsungs20)));
+            helper.insert2("SAMSUNG Galaxy M23 4/128GB 5G 6.6","2","To fajny telefon", (float) 1399.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.samsungm23)));
+            helper.insert2("Ładowarka sieciowa APPLE 20W USB-C","3","To bardzo dobra ładowarka", (float) 109.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.appleusbc)));
+            helper.insert2("Ładowarka sieciowa SAMSUNG EP-TA800NBEGEU 25W USB-C","3","To dobra ładowarka", (float) 99.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.samsungusbc)));
+            helper.insert2("Słuchawki bezprzewodowe APPLE AirPods Pro","4","To bardzo dobre słuchawki", (float) 1099.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.airpods)));
+            helper.insert2("Słuchawki bezprzewodowe SAMSUNG Galaxy Buds Pro","4","To dobre słuchawki", (float) 899.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.galaxybuds)));
+            helper.insert2("Powerbank SAMSUNG 10000mAh","5","To dobry powerbank", (float) 309.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.samsung)));
+            helper.insert2("Powerbank APPLE 10000mAh","5","To bardzo dobry powerbank", (float) 509.32,ImageToString(BitmapFactory.decodeResource(getResources(),R.drawable.apple)));
         }
     }
     public void showFragment(int fragment){
@@ -146,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void Save(boolean logged) {
         isLogged = logged;
-        Toast.makeText(this, ""+isLogged, Toast.LENGTH_SHORT).show();
     }
 
     public List<Product> getProducts() {
@@ -157,6 +163,19 @@ public class MainActivity extends AppCompatActivity {
         cart.add(item);
         DbController dbController=new DbController(getApplicationContext());
         dbController.insert5(String.valueOf(item.getUser_id()), String.valueOf(item.getProduct_id()),item.getQuantity());
+    }
+    public String ImageToString(Bitmap bitmap){
+        ByteArrayOutputStream baos=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,40,baos);
+        byte[] imageBytes=baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+
+    public void StringToImage(String encodedImage, ImageView imageView){
+        InputStream stream = new ByteArrayInputStream(Base64.decode(encodedImage.getBytes(), Base64.DEFAULT));
+        Bitmap bitmap = BitmapFactory.decodeStream(stream);
+        imageView.setImageBitmap(bitmap);
     }
 
     private void SaveUser(){

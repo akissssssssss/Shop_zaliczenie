@@ -59,6 +59,7 @@ public class ProductView extends Fragment {
         productTitle.setText(chosenProduct.getItem_name());
         productPrice.setText(chosenProduct.getPrice()+" PLN");
         productDescription.setText(chosenProduct.getDescription());
+        mainActivity.StringToImage(chosenProduct.getPhoto(),productImage);
     }
 
     private void decrement() {

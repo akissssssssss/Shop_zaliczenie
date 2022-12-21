@@ -41,6 +41,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.productName.setText(title);
         holder.productPrice.setText(product.getPrice()+" PLN");
         holder.productDescription.setText(product.getDescription());
+        mainActivity.StringToImage(product.getPhoto(),holder.productImage);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
