@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ public class AccountFragment extends Fragment {
     TextView username;
     Button logout;
     CheckBox remember;
+    TextView author;
 
     public AccountFragment() {
        super (R.layout.fragment_account);
@@ -34,6 +36,14 @@ public class AccountFragment extends Fragment {
         username = view.findViewById(R.id.Username);
         logout = view.findViewById(R.id.logout_button);
         remember = view.findViewById(R.id.checkbox);
+        author = view.findViewById(R.id.author);
+
+        author.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mainActivity, R.string.author, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         logout.setOnClickListener(v -> {
             mainActivity.setUser(null);

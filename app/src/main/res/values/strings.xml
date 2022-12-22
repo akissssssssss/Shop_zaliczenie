@@ -36,4 +36,6 @@
     <string name="registered">Zarejestrowano</string>
     <string name="permission_grant">Uprawnienia przyznane</string>
     <string name="permission_denied">Uprawnienia nieprzyznane</string>
+    <string name="author_info">Informacje o autorze</string>
+    <string name="author">Autor: Bartosz Redecki IVPp</string>
 </resources>

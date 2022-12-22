@@ -43,7 +43,15 @@
         android:text="@string/remember_me"
         android:layout_below="@id/logout_button"
         android:layout_marginLeft="10dp"/>
-
+    <TextView
+        android:id="@+id/author"
+        android:textColor="@color/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/author_info"
+        android:layout_below="@id/checkbox"
+        android:padding="10dp"
+        android:textSize="15sp"/>
 
 
 </RelativeLayout>

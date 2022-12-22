@@ -35,4 +35,6 @@
     <string name="registered">Registered</string>
     <string name="permission_grant">Permissions granted</string>
     <string name="permission_denied">Permissions denied</string>
+    <string name="author">Author: Bartosz Redecki IVPp</string>
+    <string name="author_info">Author information</string>
 </resources>
