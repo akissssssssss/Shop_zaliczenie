@@ -14,7 +14,7 @@
         android:id="@+id/reg_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp" />
     <TextView
         android:layout_above="@id/reg_surname"
         android:id="@+id/text5"
@@ -26,7 +26,7 @@
         android:id="@+id/reg_surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp" />
     <TextView
         android:layout_above="@id/reg_email"
         android:id="@+id/text2"
@@ -38,7 +38,8 @@
         android:id="@+id/reg_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:inputType="textEmailAddress"/>
     <TextView
         android:layout_centerVertical="true"
         android:id="@+id/text3"
@@ -50,7 +51,8 @@
         android:id="@+id/reg_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword"/>
     <TextView
         android:layout_below="@id/reg_password"
         android:id="@+id/text4"
@@ -62,7 +64,8 @@
         android:id="@+id/reg_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:inputType="number"/>
     <Button
         android:layout_below="@id/reg_phone"
         android:id="@+id/btn_register"

@@ -3,7 +3,6 @@ package com.example.shop;
 import static com.example.shop.Data.Fragments.getFragment;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -11,7 +10,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -33,7 +31,6 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     public final static int MY_PERMISSION_REQUEST_SEND_SMS = 1;
     public BottomNavigationView bottomNavigationView;
     private User user;
-    private Product product;
     private List<Product> products;
     private List<Cart> cart;
     private List<Order> orders;
@@ -66,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if(user==null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(R.string.AlertDialog_message)
-                    .setPositiveButton(R.string.loguj, new DialogInterface.OnClickListener() {
+                    .setNeutralButton(R.string.login, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             showFragment(Fragments.FRAGMENT_LOGIN);
@@ -113,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         DbController helper=new DbController(getApplicationContext());
 
         if (helper.getCategories().getCount()==0){
-            helper.insert1("Bartosz","Redecki","a","690188005","a");
+            helper.insert1("Bartosz","Redecki","redecki28@gmail.com","690188005","a");
 
             helper.insert4("Apple");
             helper.insert4("Samsung");
@@ -145,9 +141,6 @@ public class MainActivity extends AppCompatActivity {
     public List<Cart> getCart() {
         return cart;
     }
-    public List<Order> getOrders() {
-        return orders;
-    }
     public boolean isSaved(){
         return isLogged;
     }
@@ -155,9 +148,6 @@ public class MainActivity extends AppCompatActivity {
         isLogged = logged;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
     public void addItemToCart(Product product,int quantity){
         Cart item=new Cart(user.getId(),product.getId(),quantity);
         cart.add(item);
