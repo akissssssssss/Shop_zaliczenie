@@ -36,6 +36,7 @@
         android:text="1000"
         android:padding="10dp"
         android:textColor="@color/text"
-        android:layout_alignParentEnd="true"/>
+        android:layout_below="@id/email_order"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
